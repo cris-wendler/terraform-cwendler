@@ -11,12 +11,12 @@ resource "google_compute_subnetwork" "dev-subnet" {
 }
 
 resource "aws_vpc" "our_aws_dev_vpc_one" {
-    cidr_block = "10.0.0.0/16"
-    enable_dns_hostnames = true
-    enable_dns_support = true
-    tags = {
-        Name = "terraform-aws-vpc-one"
-    }
+  cidr_block = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support = true
+  tags = {
+    Name = "terraform-aws-vpc-one"
+  }
 }
 
 resource "aws_subnet" "subnet1" {
@@ -35,7 +35,7 @@ resource "aws_security_group" "subnetsecurity" {
   vpc_id = aws_vpc.our_aws_dev_vpc_one.id
   ingress {
     cidr_blocks = [
-    aws_vpc.our_aws_dev_vpc_one.cidr_block
+      aws_vpc.our_aws_dev_vpc_one.cidr_block
     ]
     from_port = 80
     protocol = "tcp"
