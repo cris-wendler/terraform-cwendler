@@ -8,6 +8,6 @@ resource "aws_vpc" "environment-example-two" {
     enable_dns_hostnames = true
     enable_dns_support = true
     tags = {
-        Name = "terraform-aws-vpc-example-three"
+        Name = "terraform-aws-vpc-example-one"
     }
 }
