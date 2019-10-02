@@ -1,2 +1,2 @@
 # terraform
-Testing Terraform wiht GCP and MSA
+Terraform with AWS, GCP and Azure
