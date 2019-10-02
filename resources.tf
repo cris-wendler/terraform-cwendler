@@ -3,6 +3,13 @@ resource "google_compute_network" "our_gcp_dev_vpc_one" {
   auto_create_subnetworks = false
 }
 
+resource "google_compute_subnetwork" "dev-subnet" {
+  ip_cidr_range = "10.0.1.0/24"
+  name = "devsubnet"
+  network = google_compute_network.our_gcp_dev_vpc_one.self_link
+  region = "us-west1"
+}
+
 resource "aws_vpc" "our_aws_dev_vpc_one" {
     cidr_block = "10.0.0.0/16"
     enable_dns_hostnames = true
