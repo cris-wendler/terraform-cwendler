@@ -1,7 +1,7 @@
 resource "google_compute_instance" "server" {
   machine_type = "n1-standard-1"
-  name = "debianserver"
-  zone = "us-west1-a"
+  name         = "debianserver"
+  zone         = "us-west1-a"
   metadata = {
     foo = "bar"
   }
@@ -19,7 +19,7 @@ resource "google_compute_instance" "server" {
   }
 
   service_account {
-    scopes = ["userinfo-email","compute-ro","storage-ro"]
+    scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
 }
 
@@ -28,12 +28,12 @@ data "aws_ami" "ubuntu" {
   most_recent = true
 
   filter {
-    name = "name"
+    name   = "name"
     values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
   }
 
   filter {
-    name = "virtualization-type"
+    name   = "virtualization-type"
     values = ["hvm"]
   }
 
@@ -41,7 +41,7 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "second_server" {
-  ami = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
   tags = {
