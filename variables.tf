@@ -1,4 +1,4 @@
-// Google Compute Platform Variables
+// Google Compute Platform Variables V.1
 variable network_name {
   default     = "thenewnet"
   type        = "string"
